@@ -1,0 +1,311 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+body.light {
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+body.dark {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+footer.light, header.light {
+    background-color: #fff;
+}
+
+footer.dark, header.dark {
+    background-color: #282828;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.floatRight {
+    float: right;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+div {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.media {
+    width: 48px;
+    height: 48px;
+    margin: 5px;
+    background-color: #8f8d8e;
+    border-radius: 6px;
+    /*display: inline-block;*/
+    float: left;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+#mediaAll a {
+    display: inline-block;
+}
+
+#mediaAll a {
+    display: inline-block;
+}
+
+#facebook:hover {
+    background-color: #4172B8;
+}
+
+#hackerrank:hover {
+    background-color: #2EC866;
+}
+
+#github:hover {
+    background-color: #181717;
+}
+
+#instagram:hover {
+    background-color: #E4405F;
+}
+
+#mediaAll {
+    overflow: hidden;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#mediaAll a {
+    float: inherit;
+}
+
+.circle {
+    border-radius: 50%;
+    height: auto;
+}
+
+.avatar-default {
+    margin: 0 auto;
+    display: block;
+    width: 200px;
+    /*height: 300px;*/
+}
+
+/*.Content {
+    margin: 0 auto;
+}*/
+
+.Impressum {
+    /*width: 80%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10pt;*/
+}
+
+.invisible {
+    visibility: hidden;
+    display: none;
+}
+
+.menu-item a {
+}
+
+.footer-text {
+    font-size: 12px;
+}
+
+/* NavIcon */
+
+
+#nav-icon.collapsed span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon span:nth-child(2), #nav-icon span:nth-child(3) {
+    top: 6px;
+}
+
+#nav-icon.collapsed span:nth-child(4) {
+    top: 12px;
+}
+
+#nav-icon span:nth-child(1), #nav-icon span:nth-child(4) {
+    top: 6px;
+    width: 0%;
+    left: 50%;
+}
+
+#nav-icon.collapsed span {
+    -webkit-transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg) !important;
+    -o-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
+
+    width: 100% !important;
+    left: 0 !important;
+}
+
+#nav-icon span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#nav-icon span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#nav-icon {
+
+}
+
+#nav-icon-wrapper {
+    margin: 0.5rem 0.75rem;
+    width: 20px;
+    height: 16px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #7f7f7f; /*#d3531a;*/
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+.navbar-toggler {
+    padding: 0 !important;
+}
+
+svg {
+    fill: white;
+}
+
+.media svg {
+    width: 75%;
+    height: 75%;
+    margin: auto;
+}
+
+.blinking {
+    animation: blink-animation 1s steps(3, start) infinite;
+    -webkit-animation: blink-animation 1s steps(3, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.cursor {
+    margin-left: -10px;
+}
+
+#typewriter {
+    font-size: 38px;
+}
+
+.colored {
+    color: #4172B8;
+}
