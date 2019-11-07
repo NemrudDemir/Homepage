@@ -38,6 +38,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
   <ProjectExtensions><VisualStudio><UserProperties wwwroot_4site_1webmanifest__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

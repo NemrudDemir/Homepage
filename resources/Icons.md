@@ -1,6 +1,6 @@
 # Favicon
 
-Favicon generator link: [click here](https://favicon.io/favicon-generator/?t=N&ff=Allerta+Stencil&fs=110&fc=%23FFF&b=rounded&bc=%23209CEE "favicon.io - url to the icon")
+Favicon generator link: [click here](https://favicon.io/favicon-generator/?t=N&ff=Allerta+Stencil&fs=120&fc=%23FFF&b=rounded&bc=%2314A76C "favicon.io - url to the icon")
 
 
 # Socialmedia
