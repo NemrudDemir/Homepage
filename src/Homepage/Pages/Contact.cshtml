@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="~/css/contact.css" />
 </head>
 <div class="contact-container">
-    <form id="contact" action="" method="post">
+    <div id="contact-container-overlay" class="overlay invisible">
+        <div class="loadLine">
+        </div>
+    </div>
+    @Html.Raw(Model.ResultHtmlCode)
+    <form id="contact" action="" method="post" onsubmit="$('#contact-container-overlay').removeClass('invisible')">
         <h3 class="colored">Contact</h3>
         <h4><!--subtitle--></h4>
         <fieldset>
@@ -21,7 +26,7 @@
             <textarea asp-for="Message" placeholder="Type your Message Here...." tabindex="3" required></textarea>
         </fieldset>
         <fieldset>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" tabindex="4">Submit</button>
         </fieldset>
     </form>
 </div>

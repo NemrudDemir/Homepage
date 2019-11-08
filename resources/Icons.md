@@ -10,3 +10,9 @@ The icons are from 'simple icons':
 [github](https://github.com/simple-icons/simple-icons "github")
 
 The icons (svgs) are hardcoded - we could do it non-hardcoded with [js](https://stackoverflow.com/a/24933495) and [CDN-Links](https://github.com/simple-icons/simple-icons#cdn-usage)
+
+
+# Other icons
+
+* Contact: Sending success: [iconfinder](https://www.iconfinder.com/icons/299110/check_sign_icon "iconfinder")
+* Contact: Sending failure: [iconfinder](https://www.iconfinder.com/icons/299045/error_sign_icon "iconfinder")

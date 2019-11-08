@@ -81,6 +81,11 @@ fieldset {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+#contact button[type="submit"]:focus {
+    outline: 1px solid var(--dark);
+    background-color: var(--highlight-color-dark);
+}
+
 #contact input:focus, #contact textarea:focus {
     outline: 0;
     border: 1px solid #999;
@@ -100,4 +105,86 @@ fieldset {
 
 :-ms-input-placeholder {
     color: #888;
+}
+
+.loadLine {
+    /* right: 0px; */
+    position: absolute;
+    width: 60%;
+    height: 5px;
+    background-color: var(--highlight-color);
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run;
+    -webkit-animation-duration: 2s;
+}
+
+#contact-container-overlay {
+}
+
+.overlay {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    overflow: hidden;
+    background-color: rgba(0,0,0,.2);
+}
+
+#sendResult {
+    top: 40%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+#result-overlay {
+    background-color: rgba(249,249,249,241);
+}
+
+#resultText {
+    font-size: x-large;
+}
+
+.success {
+    color: var(--success);
+}
+
+.danger {
+    color: var(--danger);
+}
+
+@-webkit-keyframes run {
+    0% {
+        left: 0;
+        width: 0;
+    }
+
+    20% {
+        left: 0;
+        width: 0;
+    }
+
+    50% {
+        left: 0;
+        width: 60%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+#mailTo {
+    text-align: center;
+    font-size: small;
+    display: block;
+}
+
+#sendResult-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto;
 }
