@@ -52,4 +52,9 @@ steps:
     preservePaths: true
     trustSSL: true
 
-    
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'raspi'
+    sourceFolder: '$(Agent.BuildDirectory)'
+    contents: '**'
+    targetFolder: '/var/www/upload'
