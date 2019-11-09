@@ -25,6 +25,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+    arguments: '-c Release -r linux-arm'
     zipAfterPublish: false
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 
