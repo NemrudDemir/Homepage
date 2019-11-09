@@ -43,6 +43,6 @@ steps:
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'raspi'
-    sourceFolder: '$(Agent.BuildDirectory)'
-    contents: '**'
+    sourceFolder: '$(Agent.RootDirectory)'
+    contents: '**/bin/**'
     targetFolder: '/var/www/upload'
