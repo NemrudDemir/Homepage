@@ -46,7 +46,7 @@ steps:
     serverEndpoint: 'raspi ftp connection'
     rootDirectory: '$(build.artifactstagingdirectory)'
     filePatterns: '**'
-    remoteDirectory: '/upload/$(Build.BuildId)/'
+    remoteDirectory: '/upload/'
     clean: false
     cleanContents: true
     preservePaths: true
