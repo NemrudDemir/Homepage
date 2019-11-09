@@ -40,18 +40,6 @@ steps:
     CleanTargetFolder: true
     OverWrite: true
 
-- task: FtpUpload@2
-  inputs:
-    credentialsOption: 'serviceEndpoint'
-    serverEndpoint: 'raspi ftp connection'
-    rootDirectory: '$(build.artifactstagingdirectory)'
-    filePatterns: '**'
-    remoteDirectory: '/upload/'
-    clean: false
-    cleanContents: true
-    preservePaths: true
-    trustSSL: true
-
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'raspi'
