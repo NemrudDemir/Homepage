@@ -48,9 +48,9 @@ steps:
 #    CleanTargetFolder: true
 #    OverWrite: true
 
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: 'raspi'
-    sourceFolder: '$(System.DefaultWorkingDirectory)'
-    contents: '**/bin/**'
-    targetFolder: '/var/www/upload'
+#- task: CopyFilesOverSSH@0
+#  inputs:
+#    sshEndpoint: 'raspi'
+#    sourceFolder: '$(System.DefaultWorkingDirectory)'
+#    contents: '**/bin/**'
+#    targetFolder: '/var/www/upload'
