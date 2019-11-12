@@ -58,9 +58,3 @@ $(document).ready(function () {
 
     });
 });
-
-// example: <div onclick="openInNewTab('www.test.com');">Something To Click On</div>
-function openInNewTab(url) {
-    var win = window.open(url, '_blank');
-    win.focus();
-}
