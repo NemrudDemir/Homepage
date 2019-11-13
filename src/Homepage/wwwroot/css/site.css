@@ -158,30 +158,55 @@ div {
     height: auto;
 }
 
-.avatar-default {
+.avatar-wrapper {
     margin: 0 auto;
     display: block;
+    position: relative;
     width: 200px;
-    /*height: 300px;*/
+    height: 200px;
+    overflow: hidden;
+}
+
+.avatar-wrapper:before {
+    background: #000;
+    mix-blend-mode: overlay;
+    opacity: .3;
+}
+
+.avatar-wrapper:after {
+    mix-blend-mode: lighten;
+    opacity: .7;
+    background: linear-gradient(135deg, var(--highlight-color-dark) 0%, #010C4E 75%);
+}
+
+.avatar-wrapper:before, .avatar-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.avatar-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
 }
 
 /*.Content {
     margin: 0 auto;
 }*/
 
-.Impressum {
-    /*width: 80%;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    font-size: 10pt;*/
-}
-
 .invisible {
     visibility: hidden;
     display: none;
-}
-
-.menu-item a {
 }
 
 .footer-text {
@@ -304,7 +329,7 @@ svg {
 }
 
 .cursor {
-    margin-left: -10px;
+    margin-left: -5px;
 }
 
 #typewriter {
