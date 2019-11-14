@@ -1,5 +1,7 @@
 # Homepage
 
+[![Build Status](https://dev.azure.com/n0060/Homepage/_apis/build/status/NemrudDemir.Homepage?branchName=master)](https://dev.azure.com/n0060/Homepage/_build/latest?definitionId=1&branchName=master)
+
 **Live: [Nemrud.de](https://nemrud.de/)**
 
 This repository contains my personal homepage using asp.net core with razor pages, html, css and javascript (jQuery). 
