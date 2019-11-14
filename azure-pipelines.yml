@@ -29,6 +29,12 @@ steps:
     zipAfterPublish: false
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 
+- task: CopyFiles@2
+  inputs:
+    Contents: '**\Release\**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    OverWrite: true
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
