@@ -4,7 +4,6 @@
     this.loopNum = 0;
     this.period = parseInt(period, 10) || 2000;
     this.txt = "";
-    this.tick();
     this.isDeleting = false;
 };
 
@@ -12,7 +11,12 @@ function nextElementNo(txtType) {
     return (txtType.loopNum + 1) % txtType.toRotate.length;
 }
 
-function getDelta(isDeleting, random) {
+function nextElement(txtType) {
+    return txtType.toRotate[nextElementNo(txtType)];
+}
+
+function getDelta(isDeleting) {
+    var random = Math.random();
     var delta = 200 - random * 100;
     if (isDeleting) { delta /= 2; }
     return delta;
@@ -25,6 +29,7 @@ function updateText(txtType) {
     } else {
         txtType.txt = fullTxt.substring(0, txtType.txt.length + 1);
     }
+    txtType.el.innerHTML = txtType.txt; //"<span class=\"wrap\">" + this.txt + "</span>";
 }
 
 TxtType.prototype.tick = function () {
@@ -35,19 +40,15 @@ TxtType.prototype.tick = function () {
     }
 
     updateText(this);
-    this.el.innerHTML = "<span class=\"wrap\">" + this.txt + "</span>";
 
-    var random = Math.random();
-    var delta = getDelta(this.isDeleting, random);
+    var delta = getDelta(this.isDeleting);
 
-    var nextElement = this.toRotate[nextElementNo(this)];
-    var txtIntersectsWithNext = nextElement.startsWith(this.txt);
+    var txtIntersectsWithNext = nextElement(this).startsWith(this.txt);
 
     if (!this.isDeleting && this.txt === fullTxt) {
         delta = this.period;
         this.isDeleting = true;
-    } else if (this.isDeleting && //stop deleting if next text intersects with current + randomness
-        ((txtIntersectsWithNext && random >= 0.5) || this.txt === "")) {
+    } else if (this.isDeleting && txtIntersectsWithNext) { //stop deleting if next text intersects with current
         this.isDeleting = false;
         this.loopNum = nextElementNo(this);
         delta = 500;
@@ -64,6 +65,7 @@ window.onload = function () {
     var toRotate = element.getAttribute("data-type");
     var period = element.getAttribute("data-period");
     if (toRotate) {
-        var _ = new TxtType(element, JSON.parse(toRotate), period);
+        var writer = new TxtType(element, JSON.parse(toRotate), period);
+        writer.tick();
     }
 };
