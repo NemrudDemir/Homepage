@@ -1,4 +1,5 @@
 ﻿@page
+@using Homepage.Settings
 @model Impressum
 @{
     ViewData["Title"] = "Impressum";
@@ -8,7 +9,7 @@
     <div class="titel"><h2>@ViewData["Title"]</h2></div>
     <br />
     <h4>Kontakt:</h4>
-    <p>Nemrud Demir<br />E-Mail: webmaster@nemrud.de
+    <p>@Owner.FullName<br />E-Mail: webmaster@nemrud.de
     <p class="invisible"></p>
     <h4>Haftung f&uuml;r Inhalte</h4>
     <p>

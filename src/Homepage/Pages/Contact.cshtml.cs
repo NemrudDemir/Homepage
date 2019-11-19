@@ -29,7 +29,7 @@ namespace Homepage.Pages
         public void OnPost([FromServices]IOptions<MailSettings> settings)
         {
             var fromAddress = new MailAddress(settings.Value.MailAddress, Name);
-            var toAddress = new MailAddress(settings.Value.ToMailAddress, "Nemrud Demir");
+            var toAddress = new MailAddress(settings.Value.ToMailAddress, Owner.FullName);
 
             var smtp = new SmtpClient
             {
