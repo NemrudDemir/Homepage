@@ -14,7 +14,7 @@ function nextElementNo(txtType) {
 
 function getDelta(isDeleting, random) {
     var delta = 200 - random * 100;
-    if (this.isDeleting) { delta /= 2; }
+    if (isDeleting) { delta /= 2; }
     return delta;
 }
 
@@ -60,12 +60,10 @@ TxtType.prototype.tick = function () {
 };
 
 window.onload = function () {
-    var elements = document.getElementsByClassName("typewrite");
-    for (var i = 0; i < elements.length; i++) {
-        var toRotate = elements[i].getAttribute("data-type");
-        var period = elements[i].getAttribute("data-period");
-        if (toRotate) {
-            new TxtType(elements[i], JSON.parse(toRotate), period);
-        }
+    var element = document.getElementById("typewriteSpan");// $("#typewriteSpan");
+    var toRotate = element.getAttribute("data-type");
+    var period = element.getAttribute("data-period");
+    if (toRotate) {
+        var _ = new TxtType(element, JSON.parse(toRotate), period);
     }
 };
