@@ -33,12 +33,6 @@ function updateText(txtType) {
 }
 
 TxtType.prototype.tick = function () {
-    var fullTxt = this.toRotate[this.loopNum];
-
-    if (this.txt === "") {
-        setTimeout(function () { }, 1000); //wait 1000 ms if no letter written
-    }
-
     updateText(this);
 
     var delta = getDelta(this.isDeleting);
@@ -66,6 +60,6 @@ window.onload = function () {
     var period = element.getAttribute("data-period");
     if (toRotate) {
         var writer = new TxtType(element, JSON.parse(toRotate), period);
-        writer.tick();
+        setTimeout(function() { writer.tick(); }, 1000); //wait on init
     }
 };
