@@ -176,7 +176,7 @@ div {
 .avatar-wrapper:after {
     mix-blend-mode: lighten;
     opacity: .7;
-    background: linear-gradient(135deg, var(--highlight-color-dark) 0%, #010C4E 75%);
+    background: linear-gradient(135deg, var(--highlight-color) 0%, #010C4E 75%);
 }
 
 .avatar-wrapper:before, .avatar-wrapper:after {
