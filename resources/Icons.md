@@ -1,9 +1,10 @@
-# Favicon
+# Icons
+
+## Favicon
 
 Favicon generator link: [click here](https://favicon.io/favicon-generator/?t=N&ff=Allerta+Stencil&fs=120&fc=%23FFF&b=rounded&bc=%2314A76C "favicon.io - url to the icon")
 
-
-# Socialmedia
+## Socialmedia
 
 The icons are from 'simple icons':  
 [website](https://simpleicons.org/ "website")  
@@ -11,8 +12,7 @@ The icons are from 'simple icons':
 
 The icons (svgs) are hardcoded - we could do it non-hardcoded with [js](https://stackoverflow.com/a/24933495) and [CDN-Links](https://github.com/simple-icons/simple-icons#cdn-usage)
 
+## Other icons
 
-# Other icons
-
-* Contact: Sending success: [iconfinder](https://www.iconfinder.com/icons/299110/check_sign_icon "iconfinder")
-* Contact: Sending failure: [iconfinder](https://www.iconfinder.com/icons/299045/error_sign_icon "iconfinder")
+  * Contact: Sending success: [iconfinder](https://www.iconfinder.com/icons/299110/check_sign_icon "iconfinder")
+  * Contact: Sending failure: [iconfinder](https://www.iconfinder.com/icons/299045/error_sign_icon "iconfinder")
