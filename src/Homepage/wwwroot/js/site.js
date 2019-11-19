@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
-    var themeName = 'light'; //TODO dark
+    var themeName = "light"; //TODO dark
     document.body.classList.add(themeName);
-    $('footer').addClass(themeName);
-    $('header').addClass(themeName);
+    $("footer").addClass(themeName);
+    $("header").addClass(themeName);
 });

@@ -21,6 +21,7 @@ namespace Homepage
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.Configure<BuildProperties>(Configuration.GetSection("BuildProperties"));
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
         }
 
@@ -42,7 +43,7 @@ namespace Homepage
             //Use static files - add .webmanifest files
             var provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
-            app.UseStaticFiles(new StaticFileOptions()
+            app.UseStaticFiles(new StaticFileOptions
             {
                 ContentTypeProvider = provider
             });

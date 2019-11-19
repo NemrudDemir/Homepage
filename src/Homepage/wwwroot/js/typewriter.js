@@ -3,7 +3,7 @@
     this.el = el;
     this.loopNum = 0;
     this.period = parseInt(period, 10) || 2000;
-    this.txt = '';
+    this.txt = "";
     this.tick();
     this.isDeleting = false;
 };
@@ -11,7 +11,7 @@
 TxtType.prototype.tick = function () {
     var fullTxt = this.toRotate[this.loopNum];
 
-    if (this.txt === '') {
+    if (this.txt === "") {
         setTimeout(function () { }, 1000); //wait 1000 ms if no letter written
     }
 
@@ -24,7 +24,7 @@ TxtType.prototype.tick = function () {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
-    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
 
     var that = this;
     var random = Math.random();
@@ -54,8 +54,8 @@ function nextElementNo(txtType) {
 window.onload = function () {
     var elements = document.getElementsByClassName('typewrite');
     for (var i = 0; i < elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-type');
-        var period = elements[i].getAttribute('data-period');
+        var toRotate = elements[i].getAttribute("data-type");
+        var period = elements[i].getAttribute("data-period");
         if (toRotate) {
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }

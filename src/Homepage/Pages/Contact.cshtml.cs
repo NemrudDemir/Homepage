@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Threading.Tasks;
 using Homepage.Settings;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Homepage.Pages
@@ -29,6 +23,7 @@ namespace Homepage.Pages
 
         public void OnGet()
         {
+            //Nothing to do
         }
 
         public void OnPost([FromServices]IOptions<MailSettings> settings)
@@ -45,7 +40,8 @@ namespace Homepage.Pages
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromAddress.Address, settings.Value.Password)
             };
-            bool wasSuccessful = true;
+
+            var wasSuccessful = true;
             try
             {
                 using (var message = new MailMessage(fromAddress, toAddress)
@@ -64,16 +60,17 @@ namespace Homepage.Pages
             } finally
             {
                 SetResultContent(wasSuccessful, settings.Value.ToMailAddress);
+                smtp.Dispose();
             }
         }
 
-        private void SetResultContent(bool WasSuccessful, string receiverMail)
+        private void SetResultContent(bool wasSuccessful, string receiverMail)
         {
-            ///template for result div
-            ///{0} = class: success/danger for resultText styling
-            ///{1} = svg image name in 'img'-directory | success/danger
-            ///{2} = resultText
-            ///{3} = additional html below resultText
+            //template for result div
+            //{0} = class: success/danger for resultText styling
+            //{1} = svg image name in 'img'-directory | success/danger
+            //{2} = resultText
+            //{3} = additional html below resultText
             const string template = "<div id='result-overlay' class='overlay'>" +
                         "<div id='sendResult'>" +
                             "<img id='sendResult-image' src='img/{1}.svg'>" +
@@ -82,17 +79,17 @@ namespace Homepage.Pages
                         "</div>" +
                     "</div>";
 
-            if (WasSuccessful)
+            if (wasSuccessful)
             {
                 ResultHtmlCode = string.Format(template, "success", "success", "Mail sent!", "");
             } else
             {
                 ResultHtmlCode = 
                     string.Format(template, "danger", "danger", "Sending failed!", 
-                    $"<a id='mailTo' " +
+                    "<a id='mailTo' " +
                     $"href='mailto:{receiverMail}?body={Helpers.Url.Escape(Message)}'>" +
-                    $"Send with mail-client" +
-                    $"</a>");
+                    "Send with mail-client" +
+                    "</a>");
             }
         }
     }
