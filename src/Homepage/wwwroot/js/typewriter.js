@@ -8,6 +8,25 @@
     this.isDeleting = false;
 };
 
+function nextElementNo(txtType) {
+    return (txtType.loopNum + 1) % txtType.toRotate.length;
+}
+
+function getDelta(isDeleting, random) {
+    var delta = 200 - random * 100;
+    if (this.isDeleting) { delta /= 2; }
+    return delta;
+}
+
+function updateText(txtType) {
+    var fullTxt = txtType.toRotate[txtType.loopNum];
+    if (txtType.isDeleting) {
+        txtType.txt = fullTxt.substring(0, txtType.txt.length - 1);
+    } else {
+        txtType.txt = fullTxt.substring(0, txtType.txt.length + 1);
+    }
+}
+
 TxtType.prototype.tick = function () {
     var fullTxt = this.toRotate[this.loopNum];
 
@@ -15,44 +34,33 @@ TxtType.prototype.tick = function () {
         setTimeout(function () { }, 1000); //wait 1000 ms if no letter written
     }
 
-    var txtIntersectsWithNext = false; //if isDeleting and the next element starts with current txt - write next text
-    if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        var nextElement = this.toRotate[nextElementNo(this)];
-        txtIntersectsWithNext = nextElement.startsWith(this.txt);
-    } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
+    updateText(this);
+    this.el.innerHTML = "<span class=\"wrap\">" + this.txt + "</span>";
 
-    this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
-
-    var that = this;
     var random = Math.random();
-    var delta = 200 - random * 100;
+    var delta = getDelta(this.isDeleting, random);
 
-    if (this.isDeleting) { delta /= 2; }
+    var nextElement = this.toRotate[nextElementNo(this)];
+    var txtIntersectsWithNext = nextElement.startsWith(this.txt);
 
     if (!this.isDeleting && this.txt === fullTxt) {
         delta = this.period;
         this.isDeleting = true;
     } else if (this.isDeleting && //stop deleting if next text intersects with current + randomness
-        ((txtIntersectsWithNext && random >= 0.5) || this.txt === '')) {
+        ((txtIntersectsWithNext && random >= 0.5) || this.txt === "")) {
         this.isDeleting = false;
         this.loopNum = nextElementNo(this);
         delta = 500;
     }
 
+    var that = this;
     setTimeout(function () {
         that.tick();
     }, delta);
 };
 
-function nextElementNo(txtType) {
-    return (txtType.loopNum + 1) % txtType.toRotate.length;
-}
-
 window.onload = function () {
-    var elements = document.getElementsByClassName('typewrite');
+    var elements = document.getElementsByClassName("typewrite");
     for (var i = 0; i < elements.length; i++) {
         var toRotate = elements[i].getAttribute("data-type");
         var period = elements[i].getAttribute("data-period");
