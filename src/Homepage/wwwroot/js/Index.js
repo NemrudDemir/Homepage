@@ -10,11 +10,11 @@ $(document).ready(function () {
     });
     myDiv.mouseleave(function () {
         myDiv.clearQueue();
-        $(this).animate({ top: "0px" }, 120);
+        $(this).animate({ top: "0" }, 120);
     });
     myDiv.mousedown(function () {
         myDiv.clearQueue();
-        $(this).animate({ top: "0px" }, 90);
+        $(this).animate({ top: "0" }, 90);
     });
     myDiv.mouseup(function () {
         myDiv.clearQueue();

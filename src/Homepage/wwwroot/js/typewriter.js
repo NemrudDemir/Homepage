@@ -34,10 +34,9 @@ function updateText(txtType) {
 
 TxtType.prototype.tick = function () {
     updateText(this);
-
     var delta = getDelta(this.isDeleting);
-
     var txtIntersectsWithNext = nextElement(this).startsWith(this.txt);
+    var fullTxt = this.toRotate[this.loopNum];
 
     if (!this.isDeleting && this.txt === fullTxt) {
         delta = this.period;
