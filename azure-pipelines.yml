@@ -15,6 +15,20 @@ variables:
   buildConfiguration: '$(configuration)'
 
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'nemruddemir'
+    scannerMode: 'MSBuild'
+    projectKey: 'Homepage'
+    projectName: 'Homepage'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.exclusions=**/wwwroot/lib/**
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -23,15 +37,23 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '-c $(configuration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '-c $(configuration) -r linux-arm'
+    arguments: '-c $(configuration) -r $(runtime)'
     zipAfterPublish: false
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 
+- task: SonarCloudAnalyze@1
+
 - task: CopyFiles@2
   inputs:
-    Contents: '**\bin\$(configuration)\**'
+    Contents: '**\$(runtime)\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     OverWrite: true
 
