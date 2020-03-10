@@ -32,6 +32,12 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '-c $(configuration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'publish'
     publishWebProjects: true
     arguments: '-c $(configuration) -r linux-arm'
