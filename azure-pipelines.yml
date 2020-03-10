@@ -40,7 +40,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '-c $(configuration) -r linux-arm'
+    arguments: '-c $(configuration) -r $(runtime)'
     zipAfterPublish: false
     workingDirectory: '$(System.DefaultWorkingDirectory)'
 
@@ -48,7 +48,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**\bin\$(configuration)\**'
+    Contents: '**\$(runtime)\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     OverWrite: true
 
