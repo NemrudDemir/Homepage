@@ -15,6 +15,15 @@ variables:
   buildConfiguration: '$(configuration)'
 
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'nemruddemir'
+    scannerMode: 'MSBuild'
+    projectKey: 'Homepage'
+    projectName: 'Homepage'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -28,6 +37,8 @@ steps:
     arguments: '-c $(configuration) -r linux-arm'
     zipAfterPublish: false
     workingDirectory: '$(System.DefaultWorkingDirectory)'
+
+- task: SonarCloudAnalyze@1
 
 - task: CopyFiles@2
   inputs:
