@@ -37,31 +37,26 @@ namespace Homepage.Pages
 
         public void OnPost()
         {
-            var fromAddress = new MailAddress(_settings.Value.MailAddress, Name);
-            var toAddress = new MailAddress(_settings.Value.ToMailAddress, Owner.FullName);
-
-            var smtp = new SmtpClient
-            {
-                Host = _settings.Value.Host,
-                Port = _settings.Value.Port,
-                EnableSsl = _settings.Value.EnableSsl,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, _settings.Value.Password)
-            };
-
             var wasSuccessful = true;
             try
             {
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = $"Homepage contact - {Name}",
-                    Body = $"Name: {Name}{Environment.NewLine}" +
+                var fromAddress = new MailAddress(_settings.Value.MailAddress, Name);
+                var toAddress = new MailAddress(_settings.Value.ToMailAddress, Owner.FullName);
+                using(MailMessage mail = new MailMessage()) {
+                    mail.From = fromAddress;
+                    mail.To.Add(toAddress);
+                    mail.Subject = $"Homepage contact - {Name}";
+                    mail.Body = $"Name: {Name}{Environment.NewLine}" +
                         $"E-Mail: {EmailAddress}{Environment.NewLine}" +
-                        $"Message: {Message}"
-                })
-                {
-                    smtp.Send(message);
+                        $"Message: {Message}";
+
+                    using(var smtp = new SmtpClient(_settings.Value.Host, _settings.Value.Port)) {
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.EnableSsl = true;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential(fromAddress.Address, _settings.Value.Password);
+                        smtp.Send(mail);
+                    }
                 }
 
                 _logger.LogInformation("Mail successfully sent!");
@@ -72,7 +67,6 @@ namespace Homepage.Pages
             } finally
             {
                 SetResultContent(wasSuccessful, _settings.Value.ToMailAddress);
-                smtp.Dispose();
             }
         }
 
