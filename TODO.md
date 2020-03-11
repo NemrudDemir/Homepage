@@ -1,6 +1,7 @@
 # TODOs
 
 ## Content
+* Add captcha for contact form
 * Add resume page
 * Azure Release Pipeline: inject buildinformations in config/setting and update Build.cshtml
 
