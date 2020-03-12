@@ -25,6 +25,13 @@
         <fieldset>
             <textarea asp-for="Message" placeholder="Type your Message Here...." tabindex="3" required></textarea>
         </fieldset>
+        @if (Model.RecaptchaEnabled)
+        {
+            <fieldset style="margin-top: -5px">
+                <div class="g-recaptcha" data-sitekey="@Model.RecaptchaSiteKey"></div>
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+            </fieldset>
+        }
         <fieldset>
             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" tabindex="4">Submit</button>
         </fieldset>

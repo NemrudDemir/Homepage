@@ -23,6 +23,7 @@ namespace Homepage
             services.AddRazorPages();
             services.Configure<BuildProperties>(Configuration.GetSection("BuildProperties"));
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.Configure<RecaptchaSettings>(Configuration.GetSection("RecaptchaSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
