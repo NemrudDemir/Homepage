@@ -204,3 +204,7 @@ fieldset {
 #mailTo {
     margin-top: 10px;
 }
+
+.g-recaptcha {
+    margin-bottom: 15px;
+}

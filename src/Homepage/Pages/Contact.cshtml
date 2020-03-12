@@ -4,9 +4,7 @@
     ViewData["Title"] = "Contact";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/contact.css" />
-</head>
+<link rel="stylesheet" href="~/css/contact.css" />
 <div class="contact-container">
     <div id="contact-container-overlay" class="overlay invisible">
         <div class="loadLine">
@@ -15,25 +13,17 @@
     @Html.Raw(Model.ResultHtmlCode)
     <form id="contact" action="" method="post" onsubmit="$('#contact-container-overlay').removeClass('invisible')">
         <h3 class="colored">Contact</h3>
-        <h4><!--subtitle--></h4>
         <fieldset>
+            <legend><!--subtitle--></legend>
             <input asp-for="Name" placeholder="Your name" type="text" tabindex="1" required autofocus>
-        </fieldset>
-        <fieldset>
             <input asp-for="EmailAddress" placeholder="Your Email Address" type="email" tabindex="2" required>
-        </fieldset>
-        <fieldset>
             <textarea asp-for="Message" placeholder="Type your Message Here...." tabindex="3" required></textarea>
         </fieldset>
         @if (Model.RecaptchaEnabled)
         {
-            <fieldset style="margin-top: -5px">
-                <div class="g-recaptcha" data-sitekey="@Model.RecaptchaSiteKey"></div>
-                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-            </fieldset>
+            <div class="g-recaptcha" data-sitekey="@Model.RecaptchaSiteKey"></div>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         }
-        <fieldset>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" tabindex="4">Submit</button>
-        </fieldset>
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" tabindex="4">Submit</button>
     </form>
 </div>
