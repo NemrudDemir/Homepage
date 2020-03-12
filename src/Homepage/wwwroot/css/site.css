@@ -32,7 +32,9 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 @media (min-width: 768px) {
   html {
@@ -54,13 +56,6 @@ html {
 button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
 }
 
 ::selection {
@@ -131,10 +126,7 @@ div {
 
 #mediaAll a {
     display: inline-block;
-}
-
-#mediaAll a {
-    display: inline-block;
+    float: inherit;
 }
 
 #facebook:hover {
@@ -157,10 +149,6 @@ div {
     overflow: hidden;
     text-align: center;
     padding-top: 30px;
-}
-
-#mediaAll a {
-    float: inherit;
 }
 
 .circle {

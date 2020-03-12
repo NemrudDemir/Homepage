@@ -180,6 +180,7 @@ fieldset {
     text-align: center;
     font-size: small;
     display: block;
+    margin-top: 10px;
 }
 
 #sendResult-image {
@@ -199,10 +200,6 @@ fieldset {
 #sendResult > span {
     display: block;
     text-align: center;
-}
-
-#mailTo {
-    margin-top: 10px;
 }
 
 .g-recaptcha {
