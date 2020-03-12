@@ -53,7 +53,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**\$(runtime)\**'
+    Contents: '**\bin\**\$(runtime)\**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     OverWrite: true
 
