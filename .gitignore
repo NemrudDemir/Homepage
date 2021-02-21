@@ -342,3 +342,6 @@ healthchecksdb
 # appsettings - contains passwords etc
 appsettings.json
 /.vscode
+
+# Logs-Directory
+.logs

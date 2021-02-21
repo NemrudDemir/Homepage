@@ -37,18 +37,11 @@ namespace Homepage.Pages
             _recaptchaSettings = recaptchaSettings;
         }
 
-        public void OnGet()
-        {
-            //Nothing to do
-        }
-
         public async Task OnPostAsync()
         {
             if (RecaptchaEnabled)
             {
-                var captchaResponse = string.Empty;
-                if (Request.Form.TryGetValue(Constants.ClientResponseKey, out var formField))
-                    captchaResponse = formField;
+                Request.Form.TryGetValue(Constants.ClientResponseKey, out var captchaResponse);
 
                 var isCaptchaValid = await Verify(captchaResponse, HttpContext.Connection.RemoteIpAddress);
                 if (!isCaptchaValid)
