@@ -21,9 +21,9 @@ namespace Homepage
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.Configure<BuildProperties>(Configuration.GetSection("BuildProperties"));
-            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-            services.Configure<RecaptchaSettings>(Configuration.GetSection("RecaptchaSettings"));
+            services.Configure<BuildProperties>(Configuration.GetSection(nameof(BuildProperties)));
+            services.Configure<MailSettings>(Configuration.GetSection(nameof(MailSettings)));
+            services.Configure<RecaptchaSettings>(Configuration.GetSection(nameof(RecaptchaSettings)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

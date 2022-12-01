@@ -57,7 +57,7 @@ namespace Homepage.Pages
             {
                 var fromAddress = new MailAddress(_settings.Value.MailAddress, Name);
                 var toAddress = new MailAddress(_settings.Value.ToMailAddress, Owner.FullName);
-                using(MailMessage mail = new MailMessage()) {
+                using(var mail = new MailMessage()) {
                     mail.From = fromAddress;
                     mail.To.Add(toAddress);
                     mail.Subject = $"Homepage contact - {Name}";
@@ -67,7 +67,7 @@ namespace Homepage.Pages
 
                     using(var smtp = new SmtpClient(_settings.Value.Host, _settings.Value.Port)) {
                         smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        smtp.EnableSsl = true;
+                        smtp.EnableSsl = _settings.Value.EnableSsl;
                         smtp.UseDefaultCredentials = false;
                         smtp.Credentials = new NetworkCredential(fromAddress.Address, _settings.Value.Password);
                         smtp.Send(mail);
