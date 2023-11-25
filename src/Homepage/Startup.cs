@@ -21,7 +21,6 @@ namespace Homepage
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.Configure<BuildProperties>(Configuration.GetSection(nameof(BuildProperties)));
             services.Configure<MailSettings>(Configuration.GetSection(nameof(MailSettings)));
             services.Configure<RecaptchaSettings>(Configuration.GetSection(nameof(RecaptchaSettings)));
         }
@@ -38,9 +37,9 @@ namespace Homepage
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
             //Use static files - add .webmanifest files
             var provider = new FileExtensionContentTypeProvider();
             provider.Mappings[".webmanifest"] = "application/manifest+json";
